@@ -94,9 +94,11 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)include\SDL_mixer;$(ProjectDir)include\SDL2_ttf;$(ProjectDir)include\SDL2_image;$(ProjectDir)include\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -131,9 +133,11 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)include\SDL_mixer;$(ProjectDir)include\SDL2_ttf;$(ProjectDir)include\SDL2_image;$(ProjectDir)include\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -145,7 +149,23 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Observer.cpp" />
+    <ClCompile Include="source\GameObject.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\Time.cpp" />
+    <ClCompile Include="source\Texture.cpp" />
+    <ClCompile Include="source\Transform.cpp" />
+    <ClCompile Include="source\UpdateSystem.cpp" />
+    <ClCompile Include="source\PlayerStick.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Observer.h" />
+    <ClInclude Include="source\GameObject.h" />
+    <ClInclude Include="source\Time.h" />
+    <ClInclude Include="source\Texture.h" />
+    <ClInclude Include="source\Transform.h" />
+    <ClInclude Include="source\UpdateSystem.h" />
+    <ClInclude Include="source\PlayerStick.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
