@@ -15,6 +15,8 @@ SDL_Window* window;
 SDL_Renderer* renderer;
 TTF_Font* font = NULL;
 
+Time* timer = new Time();;
+
 void Initialization()
 {
 	SDL_Init(SDL_INIT_TIMER | SDL_INIT_AUDIO | SDL_INIT_VIDEO | SDL_INIT_EVENTS);
@@ -86,6 +88,9 @@ void Close()
 	window = NULL;
 	renderer = NULL;
 
+	delete timer;
+	timer = NULL;
+
 	TTF_Quit();
 	IMG_Quit();
 	SDL_Quit();
@@ -105,11 +110,14 @@ int SDL_main(int argc, char* args[])
 	bool quit = false;
 	SDL_Event event;
 
-	PlayerStick player(0, 0, 50, 150, "textures/Stick.png", renderer);
+	PlayerStick player(50, 0, 50, 150, "textures/Stick.png", renderer, timer);
 	updateSystem.Attach(&player);
+
+	timer->InitTime();
 
 	while (!quit)
 	{
+		timer->UpdateTime();
 		while (SDL_PollEvent(&event) != 0)
 		{
 			if (event.type == SDL_QUIT) { quit = true; }

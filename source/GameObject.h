@@ -4,20 +4,22 @@
 #include "Texture.h"
 #include "Observer.h"
 #include <string>
+#include "Time.h"
 
 class GameObject : public IObserver
 {
 public:
-	int speed = 10;
+	float speed = 480.0F;
+	Time* timer;
 
 	void UpdateTexture(SDL_Renderer* renderer) override;
 	//void HandleEvent(SDL_Event &event) override;
 
 	GameObject();
-	GameObject(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer);
+	GameObject(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer);
 	~GameObject();
 
-	void Move(int vectorX, int vectorY);
+	void virtual Move(int vectorX, int vectorY);
 	void Render(SDL_Renderer* renderer, double angle, SDL_Point* center, SDL_RendererFlip);
 
 	int GetX();

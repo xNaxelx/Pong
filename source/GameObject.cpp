@@ -17,13 +17,14 @@ GameObject::GameObject()
 	speed = 0;
 }
 
-GameObject::GameObject(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer)
+GameObject::GameObject(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer)
 {
 	rect.x = x;
 	rect.y = y;
 	rect.w = width;
 	rect.h = height;
 	texture.LoadFromFile(texturePath, renderer);
+	this->timer = timer;
 }
 
 GameObject::~GameObject()
@@ -33,8 +34,8 @@ GameObject::~GameObject()
 
 void GameObject::Move(int x, int y)
 {
-	rect.x += x * speed;
-	rect.y += y * speed;
+	rect.x += x * speed * ((float)timer->GetDeltaTime() / 1000.0F);
+	rect.y += y * speed * ((float)timer->GetDeltaTime() / 1000.0F);
 }
 
 void GameObject::Render(SDL_Renderer* renderer, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE)
