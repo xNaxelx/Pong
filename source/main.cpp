@@ -5,6 +5,7 @@
 #include "Time.h"
 #include "UpdateSystem.h"
 #include "PlayerStick.h"
+#include "BotStick.h"
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -110,8 +111,15 @@ int SDL_main(int argc, char* args[])
 	bool quit = false;
 	SDL_Event event;
 
-	PlayerStick player(50, 0, 50, 150, "textures/Stick.png", renderer, timer);
-	updateSystem.Attach(&player);
+	Ball* ball = new Ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 50, 50, "textures/Ball.png", renderer, timer);
+	updateSystem.Attach(ball);
+	PlayerStick* player = new PlayerStick(540, 0, 50, 150, "textures/Stick.png", renderer, timer);
+	updateSystem.Attach(player);
+	BotStick* bot = new BotStick(50, 0, 50, 150, "textures/Stick.png", renderer, timer, ball);
+	updateSystem.Attach(bot);
+	ball->player = player;
+	ball->bot = bot;
+
 
 	timer->InitTime();
 

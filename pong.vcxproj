@@ -149,6 +149,8 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Ball.cpp" />
+    <ClCompile Include="source\BotStick.cpp" />
     <ClCompile Include="source\Observer.cpp" />
     <ClCompile Include="source\GameObject.cpp" />
     <ClCompile Include="source\main.cpp" />
@@ -159,6 +161,8 @@
     <ClCompile Include="source\PlayerStick.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\Ball.h" />
+    <ClInclude Include="source\BotStick.h" />
     <ClInclude Include="source\Observer.h" />
     <ClInclude Include="source\GameObject.h" />
     <ClInclude Include="source\Time.h" />

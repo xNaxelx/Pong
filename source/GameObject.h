@@ -19,7 +19,7 @@ public:
 	GameObject(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer);
 	~GameObject();
 
-	void virtual Move(int vectorX, int vectorY);
+	void virtual Move(float vectorX, float vectorY);
 	void Render(SDL_Renderer* renderer, double angle, SDL_Point* center, SDL_RendererFlip);
 
 	int GetX();

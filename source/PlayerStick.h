@@ -8,7 +8,7 @@ public:
 	void UpdateMove() override;
 	void HandleEvent(SDL_Event* event) override;
 
-	void Move(int vectorX, int vectorY) override;
+	void Move(float vectorX, float vectorY) override;
 
 private:
 	bool isKeyUpPerformed = false;

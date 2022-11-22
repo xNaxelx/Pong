@@ -32,10 +32,10 @@ GameObject::~GameObject()
 	texture.~Texture();
 }
 
-void GameObject::Move(int x, int y)
+void GameObject::Move(float vectorX, float vectorY)
 {
-	rect.x += x * speed * ((float)timer->GetDeltaTime() / 1000.0F);
-	rect.y += y * speed * ((float)timer->GetDeltaTime() / 1000.0F);
+	rect.x += vectorX * speed * ((float)timer->GetDeltaTime() / 1000.0F);
+	rect.y += vectorY * speed * ((float)timer->GetDeltaTime() / 1000.0F);
 }
 
 void GameObject::Render(SDL_Renderer* renderer, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE)

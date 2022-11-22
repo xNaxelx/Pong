@@ -38,7 +38,7 @@ void PlayerStick::HandleEvent(SDL_Event* event)
     }
 }
 
-void PlayerStick::Move(int vectorX, int vectorY)
+void PlayerStick::Move(float vectorX, float vectorY)
 {
     rect.y += vectorY * speed * ((float)timer->GetDeltaTime() / 1000.0F);
 
