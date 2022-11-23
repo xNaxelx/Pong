@@ -16,7 +16,7 @@ public:
 	int intBotScore = 0;
 
 
-	Ball(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer);
+	Ball(int x, int y, int animFramesCount, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer);
 
 	void UpdateMove() override;
 

@@ -16,7 +16,7 @@ public:
 	//void HandleEvent(SDL_Event &event) override;
 
 	GameObject();
-	GameObject(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer);
+	GameObject(int x, int y, int animFramesCount, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer);
 	~GameObject();
 
 	void virtual Move(float vectorX, float vectorY);

@@ -17,13 +17,13 @@ GameObject::GameObject()
 	speed = 0;
 }
 
-GameObject::GameObject(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer)
+GameObject::GameObject(int x, int y, int animFramesCount, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer)
 {
 	rect.x = x;
 	rect.y = y;
 	rect.w = width;
 	rect.h = height;
-	texture.LoadFromFile(texturePath, renderer);
+	texture.LoadFromFile(texturePath, renderer, x, y, animFramesCount, width, height);
 	this->timer = timer;
 }
 

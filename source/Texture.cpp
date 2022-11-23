@@ -1,10 +1,8 @@
-#include "Texture.h"
+#include "Texture.h" 
 
 Texture::Texture()
 {
 	texture = NULL;
-	textureBox.w = 0;
-	textureBox.h = 0;
 }
 
 Texture::~Texture()
@@ -12,7 +10,7 @@ Texture::~Texture()
 	Free();
 }
 
-bool Texture::LoadFromFile(std::string path, SDL_Renderer* renderer)
+bool Texture::LoadFromFile(std::string path, SDL_Renderer* renderer, int positionX, int positionY, int framesCount, int width, int heigth)
 {
 	Free();
 
@@ -34,12 +32,22 @@ bool Texture::LoadFromFile(std::string path, SDL_Renderer* renderer)
 		}
 		else
 		{
-			textureBox.w = loadedSurface->w;
-			textureBox.h = loadedSurface->h;
+			this->framesCount = framesCount;
+			this->currentFrame = framesCount;
+			spriteClips.resize(framesCount);
+
+			for (int i = 0; i < framesCount; i++)
+			{
+				spriteClips[i].x = width * i;
+				spriteClips[i].y = 0;
+				spriteClips[i].w = width;
+				spriteClips[i].h = heigth;
+			}
 		}
 
 		SDL_FreeSurface(loadedSurface);
 	}
+
 	return true;
 }
 
@@ -57,8 +65,8 @@ bool Texture::LoadFromRenderedText(std::string textureText, TTF_Font* font ,SDL_
 		}
 		else
 		{
-			textureBox.w = textSurface->w;
-			textureBox.h = textSurface->h;
+			spriteClips.resize(1);
+			spriteClips[0] = { 0, 0, textSurface->w, textSurface->h };
 		}
 
 		SDL_FreeSurface(textSurface);
@@ -78,24 +86,27 @@ void Texture::Free()
 	{
 		SDL_DestroyTexture(texture);
 		texture = NULL;
-		textureBox.w = 0;
-		textureBox.h = 0;
 	}
 }
 
 void Texture::Render(int x, int y, SDL_Renderer* renderer, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
-	SDL_Rect renderQuad = { x, y, textureBox.w, textureBox.h};
+	SDL_Rect renderQuad = { x, y, spriteClips[currentFrame % framesCount].w, spriteClips[currentFrame % framesCount].h };
 
-	SDL_RenderCopyEx(renderer, texture, &textureBox, &renderQuad, angle, center, flip);
+	SDL_RenderCopyEx(renderer, texture, &spriteClips[currentFrame % framesCount], &renderQuad, angle, center, flip);
+
+	if (framesCount > 1)
+	{
+		currentFrame++;
+	}
 }
 
 int Texture::getWidth()
 {
-	return textureBox.w;
+	return spriteClips[0].w;
 }
 
 int Texture::getHeight()
 {
-	return textureBox.h;
+	return spriteClips[0].h;
 }

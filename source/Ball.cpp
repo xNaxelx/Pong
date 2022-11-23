@@ -2,8 +2,8 @@
 #include <iostream>
 #include <sstream>
 
-Ball::Ball(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer)
-	: GameObject(x, y, width, height, texturePath, renderer, timer)
+Ball::Ball(int x, int y, int animFramesCount, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer)
+	: GameObject(x, y, animFramesCount, width, height, texturePath, renderer, timer)
 {
 	
 }
@@ -54,7 +54,8 @@ void Ball::UpdateMove()
 
 void Ball::UpdateScoreOnScreen()
 {
-	std::cout << botScore << " " << playerScore << std::endl;
+	std::cout << intBotScore << " " << intPlayerScore << std::endl;
+	std::cout << &intPlayerScore << std::endl;
 
 	std::stringstream tempText;
 	tempText.str("");

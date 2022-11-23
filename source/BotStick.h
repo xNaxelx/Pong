@@ -5,7 +5,7 @@ class BotStick : public GameObject
 {
 public:
 	Ball* ball;
-	BotStick(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer, Ball* ball);
+	BotStick(int x, int y, int animFramesCount, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer, Ball* ball);
 
 	void UpdateMove() override;
 

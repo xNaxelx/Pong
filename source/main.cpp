@@ -112,12 +112,12 @@ int SDL_main(int argc, char* args[])
 	bool quit = false;
 	SDL_Event event;
 
-	Ball* ball = new Ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 50, 50, "textures/2Ball.png", renderer, timer);
+	Ball* ball = new Ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 1, 50, 50, "textures/Ball.png", renderer, timer);
 	updateSystem.Attach(ball);
 	ball->renderer = renderer;
-	PlayerStick* player = new PlayerStick(540, 0, 50, 150, "textures/Stick.png", renderer, timer);
+	PlayerStick* player = new PlayerStick(540, 0, 10, 50, 150, "textures/StickAnimated.png", renderer, timer);
 	updateSystem.Attach(player);
-	BotStick* bot = new BotStick(50, 0, 50, 150, "textures/Stick.png", renderer, timer, ball);
+	BotStick* bot = new BotStick(50, 0, 1, 50, 150, "textures/Stick.png", renderer, timer, ball);
 	updateSystem.Attach(bot);
 	ball->player = player;
 	ball->bot = bot;

@@ -1,7 +1,7 @@
 #include "PlayerStick.h"
 
-PlayerStick::PlayerStick(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer)
-    : GameObject(x, y, width, height, texturePath, renderer, timer)
+PlayerStick::PlayerStick(int x, int y, int animFramesCount, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer)
+    : GameObject(x, y, animFramesCount, width, height, texturePath, renderer, timer)
 {
 
 };
