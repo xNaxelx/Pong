@@ -151,6 +151,7 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\AnimatedTexture.cpp" />
     <ClCompile Include="source\Ball.cpp" />
     <ClCompile Include="source\BotStick.cpp" />
     <ClCompile Include="source\Observer.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="source\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\AnimatedTexture.h" />
     <ClInclude Include="source\Ball.h" />
     <ClInclude Include="source\BotStick.h" />
     <ClInclude Include="source\Observer.h" />
