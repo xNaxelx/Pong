@@ -6,6 +6,7 @@
 #include "UpdateSystem.h"
 #include "PlayerStick.h"
 #include "BotStick.h"
+#include "Text.h"
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -113,6 +114,7 @@ int SDL_main(int argc, char* args[])
 
 	Ball* ball = new Ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 50, 50, "textures/Ball.png", renderer, timer);
 	updateSystem.Attach(ball);
+	ball->renderer = renderer;
 	PlayerStick* player = new PlayerStick(540, 0, 50, 150, "textures/Stick.png", renderer, timer);
 	updateSystem.Attach(player);
 	BotStick* bot = new BotStick(50, 0, 50, 150, "textures/Stick.png", renderer, timer, ball);
@@ -120,6 +122,12 @@ int SDL_main(int argc, char* args[])
 	ball->player = player;
 	ball->bot = bot;
 
+	Text* botScore = new Text("textures/ttf/8-bit-hud.ttf", 50, 190, 50, "0", renderer);
+	Text* playerScore = new Text("textures/ttf/8-bit-hud.ttf", 50, 400, 50, "0", renderer);
+	updateSystem.Attach(botScore);
+	updateSystem.Attach(playerScore);
+	ball->botScore = botScore;
+	ball->playerScore = playerScore;
 
 	timer->InitTime();
 

@@ -1,7 +1,12 @@
 #include "Ball.h"
+#include <iostream>
+#include <sstream>
 
 Ball::Ball(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer)
-	: GameObject(x, y, width, height, texturePath, renderer, timer){}
+	: GameObject(x, y, width, height, texturePath, renderer, timer)
+{
+	
+}
 
 void Ball::UpdateMove()
 {
@@ -29,9 +34,38 @@ void Ball::UpdateMove()
 	{
 		vectorY *= -1.0F;
 	}
+	if (rect.x <= 0) // collision with left
+	{
+		intPlayerScore++;
+		rect.x = 320;
+		rect.y = 240;
+		UpdateScoreOnScreen();
+	}
+	if (rect.x + rect.w >= 640) // collision with right
+	{
+		intBotScore++;
+		rect.x = 320;
+		rect.y = 240;
+		UpdateScoreOnScreen();
+	}
 
 	Move(vectorX, vectorY);
 }
+
+void Ball::UpdateScoreOnScreen()
+{
+	std::cout << botScore << " " << playerScore << std::endl;
+
+	std::stringstream tempText;
+	tempText.str("");
+	tempText << intBotScore;
+	botScore->ChangeText(tempText.str().c_str(), renderer);
+
+	tempText.str("");
+	tempText << intPlayerScore;
+	playerScore->ChangeText(tempText.str().c_str(), renderer);
+}
+
 SDL_Rect* Ball::GetRect()
 {
 	return &rect;

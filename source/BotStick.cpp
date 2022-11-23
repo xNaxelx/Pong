@@ -4,6 +4,7 @@ BotStick::BotStick(int x, int y, int width, int height, std::string texturePath,
     : GameObject(x, y, width, height, texturePath, renderer, timer)
 {
     this->ball = ball;
+    speed = 300.0F;
 }
 
 void BotStick::UpdateMove()

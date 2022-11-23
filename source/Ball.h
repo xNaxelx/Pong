@@ -1,20 +1,26 @@
 #pragma once
 #include "GameObject.h"
 #include <SDL.h>
+#include "Text.h"
 
 class Ball : public GameObject
 {
 public:
 	GameObject* player;
 	GameObject* bot;
+	Text* botScore;
+	Text* playerScore;
+	SDL_Renderer* renderer;
+
+	int intPlayerScore = 0;
+	int intBotScore = 0;
 
 
 	Ball(int x, int y, int width, int height, std::string texturePath, SDL_Renderer* renderer, Time* timer);
 
 	void UpdateMove() override;
 
-	//void Move(float vectorX, float vectorY) override;
-
+	void UpdateScoreOnScreen();
 	SDL_Rect* GetRect();
 private:
 	float vectorX = 1;
