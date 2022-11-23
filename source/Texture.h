@@ -24,7 +24,7 @@ public:
 	int getWidth();
 	int getHeight();
 protected:
-
+	int delay = 0;
 	SDL_Texture* texture;
 	//SDL_Rect textureBox;
 

@@ -95,7 +95,7 @@ void Texture::Render(int x, int y, SDL_Renderer* renderer, double angle, SDL_Poi
 
 	SDL_RenderCopyEx(renderer, texture, &spriteClips[currentFrame % framesCount], &renderQuad, angle, center, flip);
 
-	if (framesCount > 1)
+	if (framesCount > 1 && (delay++ % 8 == 0))
 	{
 		currentFrame++;
 	}
