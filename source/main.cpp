@@ -1,12 +1,14 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 #include <iostream>
 #include "Time.h"
 #include "UpdateSystem.h"
 #include "PlayerStick.h"
 #include "BotStick.h"
 #include "Text.h"
+#include "AudioMixer.h"
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -17,14 +19,7 @@ SDL_Window* window;
 SDL_Renderer* renderer;
 TTF_Font* font = NULL;
 
-Time* timer = new Time();;
-
-void Initialization()
-{
-	SDL_Init(SDL_INIT_TIMER | SDL_INIT_AUDIO | SDL_INIT_VIDEO | SDL_INIT_EVENTS);
-
-
-}
+Time* timer = new Time();
 
 bool Init()
 {
@@ -66,6 +61,14 @@ bool Init()
 					printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
 					success = false;
 				}
+				else
+				{
+					if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+					{
+						printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+						success = false;
+					}
+				}
 			}
 			if (TTF_Init() == -1)
 			{
@@ -80,8 +83,6 @@ bool Init()
 
 void Close()
 {
-	//gDotTexture.free();
-
 	TTF_CloseFont(font);
 	font = NULL;
 
@@ -128,6 +129,9 @@ int SDL_main(int argc, char* args[])
 	updateSystem.Attach(playerScore);
 	ball->botScore = botScore;
 	ball->playerScore = playerScore;
+
+	AudioMixer* audioMixer = new AudioMixer("sound/CollisionReaction.wav");
+	ball->audioMixer = audioMixer;
 
 	timer->InitTime();
 

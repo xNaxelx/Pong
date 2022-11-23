@@ -16,6 +16,8 @@ void Ball::UpdateMove()
 		{
 			vectorX = 1.0F;
 			vectorY = (float)(((rect.y + rect.h / 2.0F) - (bot->GetY() + bot->GetHeight() / 2.0F)) / ((bot->GetHeight() / 2.0F)));
+
+			audioMixer->PlaySound(audioMixer->collisionReaction);
 		}
 	}
 	if (rect.x + rect.w >= (640 - 50 - player->GetWidth())) //collision with player
@@ -24,15 +26,21 @@ void Ball::UpdateMove()
 		{
 			vectorX = -1.0F;
 			vectorY = (float)(((rect.y + rect.h / 2.0F) - (player->GetY() + player->GetHeight() / 2.0F)) / ((player->GetHeight() / 2.0F)));
+
+			audioMixer->PlaySound(audioMixer->collisionReaction);
 		}
 	}
 	if (rect.y <= 0) //collision with top
 	{
 		vectorY *= -1.0F;
+
+		audioMixer->PlaySound(audioMixer->collisionReaction);
 	}
 	if (rect.y >= 480 - rect.h) //collision with down
 	{
 		vectorY *= -1.0F;
+
+		audioMixer->PlaySound(audioMixer->collisionReaction);
 	}
 	if (rect.x <= 0) // collision with left
 	{
@@ -40,6 +48,8 @@ void Ball::UpdateMove()
 		rect.x = 320;
 		rect.y = 240;
 		UpdateScoreOnScreen();
+
+		audioMixer->PlaySound(audioMixer->collisionReaction);
 	}
 	if (rect.x + rect.w >= 640) // collision with right
 	{
@@ -47,6 +57,8 @@ void Ball::UpdateMove()
 		rect.x = 320;
 		rect.y = 240;
 		UpdateScoreOnScreen();
+
+		audioMixer->PlaySound(audioMixer->collisionReaction);
 	}
 
 	Move(vectorX, vectorY);

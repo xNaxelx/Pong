@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include <SDL.h>
 #include "Text.h"
+#include "AudioMixer.h"
 
 class Ball : public GameObject
 {
@@ -11,6 +12,7 @@ public:
 	Text* botScore;
 	Text* playerScore;
 	SDL_Renderer* renderer;
+	AudioMixer* audioMixer;
 
 	int intPlayerScore = 0;
 	int intBotScore = 0;

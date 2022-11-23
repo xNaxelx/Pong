@@ -82,8 +82,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)lib\x86\SDL_mixer;$(ProjectDir)lib\x86\SDL2_ttf;$(ProjectDir)lib\x86\SDL2_image;$(ProjectDir)lib\x86\SDL2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL_mixer.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\x86\SDL2_mixer;$(ProjectDir)lib\x86\SDL2_ttf;$(ProjectDir)lib\x86\SDL2_image;$(ProjectDir)lib\x86\SDL2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -103,8 +103,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)lib\x86\SDL_mixer;$(ProjectDir)lib\x86\SDL2_ttf;$(ProjectDir)lib\x86\SDL2_image;$(ProjectDir)lib\x86\SDL2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL_mixer.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\x86\SDL2_mixer;$(ProjectDir)lib\x86\SDL2_ttf;$(ProjectDir)lib\x86\SDL2_image;$(ProjectDir)lib\x86\SDL2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -119,8 +119,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)lib\x86\SDL_mixer;$(ProjectDir)lib\x64\SDL2_ttf;$(ProjectDir)lib\x64\SDL2_image;$(ProjectDir)lib\x64\SDL2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL_mixer.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\x86\SDL2_mixer;$(ProjectDir)lib\x64\SDL2_ttf;$(ProjectDir)lib\x64\SDL2_image;$(ProjectDir)lib\x64\SDL2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -143,14 +143,15 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)lib\x86\SDL_mixer;$(ProjectDir)lib\x64\SDL2_ttf;$(ProjectDir)lib\x64\SDL2_image;$(ProjectDir)lib\x64\SDL2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL_mixer.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\x86\SDL2_mixer;$(ProjectDir)lib\x64\SDL2_ttf;$(ProjectDir)lib\x64\SDL2_image;$(ProjectDir)lib\x64\SDL2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\AudioMixer.cpp" />
     <ClCompile Include="source\AnimatedTexture.cpp" />
     <ClCompile Include="source\Ball.cpp" />
     <ClCompile Include="source\BotStick.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="source\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\AudioMixer.h" />
     <ClInclude Include="source\AnimatedTexture.h" />
     <ClInclude Include="source\Ball.h" />
     <ClInclude Include="source\BotStick.h" />
