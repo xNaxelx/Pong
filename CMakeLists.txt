@@ -22,8 +22,6 @@ find_package(SDL2_ttf REQUIRED)
 file(GLOB src source/*.cpp source/*.h)
 add_executable(${PROJECT_NAME} ${WIN32_GUI} ${src})
 
-#target_include_directories(${PROJECT_NAME} PRIVATE "source")
-
 target_link_libraries(${PROJECT_NAME} PRIVATE SDL2::SDL2main 
 	SDL2::SDL2 
 	SDL2_image::SDL2_image 
