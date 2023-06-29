@@ -4,8 +4,8 @@ Game on SDL2 graphic library
 
 ## Control
 
- - `W` - Move stick to up
- - `S` - Move stick to down
+ - `↑` - Move stick to up
+ - `↓` - Move stick to down
 
 # Project compilation
 ## Requirements
