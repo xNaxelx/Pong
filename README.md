@@ -1,6 +1,8 @@
 # Pong
 
 Game on SDL2 graphic library
+![image](https://github.com/xNaxelx/Pong/assets/46362288/707862e3-774c-4976-b412-87b64043c4a4)
+
 
 ## Control
 
